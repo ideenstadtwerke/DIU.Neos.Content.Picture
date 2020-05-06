@@ -1,4 +1,4 @@
-prototype(DIU.OmONlineDe:Fragment.PictureLink) < prototype(Neos.Fusion:Component) {
+prototype(DIU.Neos.Content.Picture:Fragment.PictureLink) < prototype(Neos.Fusion:Component) {
 
     link = ${q(node).property('link')}
     link.@process.convertUris = Neos.Neos:ConvertUris

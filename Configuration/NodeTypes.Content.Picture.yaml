@@ -1,9 +1,16 @@
 'DIU.Neos.Content.Picture:Picture':
   superTypes:
     'Neos.Neos:Content': true
-    'Neos.NodeTypes.BaseMixins:ContentImageMixin': true
+    'Neos.NodeTypes.BaseMixins:ImageMixin': true
+    'Neos.NodeTypes.BaseMixins:LinkMixin': true
+    'Neos.NodeTypes.BaseMixins:ImageCaptionMixin': true
   ui:
     label: i18n
     group: 'general'
     icon: 'far fa-image'
     position: 30
+  properties:
+    link:
+      ui:
+        inspector:
+          group: 'image'

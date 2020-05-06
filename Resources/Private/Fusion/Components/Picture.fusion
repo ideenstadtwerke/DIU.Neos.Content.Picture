@@ -1,4 +1,4 @@
-prototype(DIU.OmOnlineDe:Components.Picture) < prototype(Neos.Fusion:Component) {
+prototype(DIU.Neos.Content.Picture:Components.Picture) < prototype(Neos.Fusion:Component) {
 
     imageSource = Sitegeist.Kaleidoscope:DummyImageSource
 
@@ -14,6 +14,12 @@ prototype(DIU.OmOnlineDe:Components.Picture) < prototype(Neos.Fusion:Component) 
             media = 'screen and (max-width: 1599px)'
         }
 
+        webpLarge = Neos.Fusion:RawArray {
+            imageSource = ${imageSource.setFormat('webp')}
+            srcset = '1x, 1.5x, 2x'
+            media = 'screen and (min-width: 1200px)'
+        }
+
         webpSmall = Neos.Fusion:RawArray {
             imageSource = ${imageSource.setFormat('webp')}
             srcset = '320w, 480w, 800w'
@@ -21,11 +27,7 @@ prototype(DIU.OmOnlineDe:Components.Picture) < prototype(Neos.Fusion:Component) 
             type = 'image/webp'
         }
 
-        webpLarge = Neos.Fusion:RawArray {
-            imageSource = ${imageSource.setFormat('webp')}
-            srcset = '1x, 1.5x, 2x'
-            media = 'screen and (min-width: 1200px)'
-        }
+
     }
 
     alt = ''
