@@ -1,0 +1,5 @@
+/**
+ * Root Fusion for the omonline site
+ */
+include: Components/**/*.fusion
+include: Integration/**/*.fusion

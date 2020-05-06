@@ -1,0 +1,15 @@
+{
+  "name": "diu/neos-content-picture",
+  "license": "MIT",
+  "description": "Neos default picture elemente",
+  "type": "neos-plugin",
+  "require": {
+      "neos/neos": "^5.0",
+      "sitegeist/kaleidoscope": "~5.0"
+    },
+    "extra": {
+        "neos": {
+            "package-key": "DIU.Neos.Content.Picture"
+        }
+    }
+}

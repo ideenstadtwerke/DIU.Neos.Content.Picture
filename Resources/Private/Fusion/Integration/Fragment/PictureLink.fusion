@@ -1,0 +1,36 @@
+prototype(DIU.OmONlineDe:Fragment.PictureLink) < prototype(Neos.Fusion:Component) {
+
+    link = ${q(node).property('link')}
+    link.@process.convertUris = Neos.Neos:ConvertUris
+    target = ${String.startsWith(q(node).property('link'),'http') ? '_blank' : '_self'}
+    download = ${String.pregMatch(this.link,'/(_Resources\/Persistent)/') ? true : false}
+
+    renderer = Neos.Fusion:Tag {
+
+        tagName = Neos.Fusion:Case {
+            backend {
+                condition = ${documentNode.context.inBackEnd}
+                renderer = 'span'
+            }
+
+            frontend {
+                condition = ${!documentNode.context.inBackEnd}
+                renderer = 'a'
+            }
+        }
+
+        content = ${value}
+
+        allowEmptyAttributes = false
+
+        attributes {
+            class = ${'atom-content-picture__link '}
+            href = ${props.link}
+            target = ${props.target}
+            rel = ${props.target == '_blank' ? 'noopener' : false}
+            download = ${props.download}
+        }
+
+
+    }
+}

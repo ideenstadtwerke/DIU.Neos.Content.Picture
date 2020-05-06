@@ -1,0 +1,36 @@
+prototype(DIU.OmOnlineDe:Components.Picture) < prototype(Neos.Fusion:Component) {
+
+    imageSource = Sitegeist.Kaleidoscope:DummyImageSource
+
+    sources = Neos.Fusion:RawArray {
+        large = Neos.Fusion:RawArray {
+            srcset = '1x, 1.5x, 2x'
+            media = 'screen and (min-width: 1200px)'
+        }
+
+        small = Neos.Fusion:RawArray {
+            srcset = '320w, 480w, 800w'
+            sizes = '(max-width: 320px) 280px, (max-width: 480px) 440px, 100vw'
+            media = 'screen and (max-width: 1599px)'
+        }
+
+        webpSmall = Neos.Fusion:RawArray {
+            imageSource = ${imageSource.setFormat('webp')}
+            srcset = '320w, 480w, 800w'
+            sizes = '(max-width: 320px) 280px, (max-width: 480px) 440px, 100vw'
+            type = 'image/webp'
+        }
+
+        webpLarge = Neos.Fusion:RawArray {
+            imageSource = ${imageSource.setFormat('webp')}
+            srcset = '1x, 1.5x, 2x'
+            media = 'screen and (min-width: 1200px)'
+        }
+    }
+
+    alt = ''
+
+    renderer = afx`
+        <Sitegeist.Kaleidoscope:Picture class="atom-picture" imageSource={props.imageSource} sources={props.sources} alt={props.alt} />
+    `
+}

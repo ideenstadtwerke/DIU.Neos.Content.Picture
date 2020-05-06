@@ -1,0 +1,27 @@
+prototype(DIU.Neos.Content.Picture:Picture) < prototype(Neos.Neos:ContentComponent) {
+    renderer = DIU.Neos.Content.Picture:Components.Picture {
+        alt = ${q(node).property('alternativeText')}
+
+        imageSource = Neos.Fusion:Case {
+            withAsset {
+                condition = ${q(node).property('image')}
+                renderer = Sitegeist.Kaleidoscope:AssetImageSource {
+                    asset = ${q(node).property('image')}
+                    width = 1110
+                    height = 625
+                }
+            }
+            noAssetInBe {
+                condition = ${node.context.inBackend}
+                renderer = Sitegeist.Kaleidoscope:DummyImageSource
+            }
+        }
+        title = ${q(node).property('title')}
+
+        @process.addCaption =${'<figure class="atom-content-picture__figure">' + value + '<figcaption>' + this.title +'</figcaption></figure>'}
+        @process.addCaption.@if.hasTitle = ${q(node).property('hasCaption')}
+
+        @process.AddLink = DIU.Neos.Content.Picture:Fragment.PictureLink
+        @process.AddLink.@if.hasLinkAndImage = ${q(node).property('link') && q(node).property('image')}
+    }
+}
