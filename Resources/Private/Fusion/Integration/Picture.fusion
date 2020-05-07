@@ -7,7 +7,7 @@ prototype(DIU.Neos.Content.Picture:Picture) < prototype(Neos.Neos:ContentCompone
                 condition = ${q(node).property('image')}
                 renderer = Sitegeist.Kaleidoscope:AssetImageSource {
                     asset = ${q(node).property('image')}
-                    width = 1110
+                    width = 1920
                 }
             }
             noAssetInBe {
