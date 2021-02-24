@@ -4,8 +4,8 @@
   "description": "Neos default picture element with auto download option, auto target _blank for external links and rel noopener",
   "type": "neos-plugin",
   "require": {
-      "neos/neos": "^5.0",
-      "sitegeist/kaleidoscope": "~5.0"
+      "neos/neos": "^5.0 || ^7.0",
+      "sitegeist/kaleidoscope": "~5.0 || ^6.0"
     },
     "extra": {
         "neos": {
