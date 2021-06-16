@@ -7,3 +7,9 @@ Neos:
     fusion:
       autoInclude:
         'DIU.Neos.Content.Picture': true
+    nodeTypes:
+      groups:
+        module:
+          position: 'start'
+          label: Module
+          collapsed: false

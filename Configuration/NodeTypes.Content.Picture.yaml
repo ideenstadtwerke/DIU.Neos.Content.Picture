@@ -6,7 +6,7 @@
     'Neos.NodeTypes.BaseMixins:ImageCaptionMixin': true
   ui:
     label: i18n
-    group: 'general'
+    group: 'module'
     icon: 'far fa-image'
     position: 30
   properties:
