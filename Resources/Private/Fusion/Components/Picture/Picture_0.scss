@@ -1,0 +1,20 @@
+.atom-picture,
+.atom-content-picture__figure {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 20px;
+  &.alignment-left {
+    text-align: left;
+  }
+  &.alignment-center {
+    text-align: center;
+  }
+  &.alignment-right {
+    text-align: right;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

@@ -16,6 +16,10 @@ prototype(DIU.Neos.Content.Picture:Picture) < prototype(Neos.Neos:ContentCompone
             }
         }
         title = ${q(node).property('title')}
+        class {
+            alignment = ${'alignment-' + q(node).property('alignment')}
+            alignment.@if.set = ${q(node).property('alignment')}
+        }
 
         @process.addCaption =${'<figure class="atom-content-picture__figure">' + value + '<figcaption>' + this.title +'</figcaption></figure>'}
         @process.addCaption.@if.hasTitle = ${q(node).property('hasCaption')}

@@ -31,8 +31,11 @@ prototype(DIU.Neos.Content.Picture:Components.Picture) < prototype(Neos.Fusion:C
     }
 
     alt = ''
+    class = Neos.Fusion:DataStructure {
+        main = 'atom-picture'
+    }
 
     renderer = afx`
-        <Sitegeist.Kaleidoscope:Picture class="atom-picture" imageSource={props.imageSource} sources={props.sources} alt={props.alt} />
+        <Sitegeist.Kaleidoscope:Picture class={props.class} imageSource={props.imageSource} sources={props.sources} alt={props.alt} />
     `
 }
