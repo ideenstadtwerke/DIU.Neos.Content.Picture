@@ -11,7 +11,7 @@ prototype(DIU.Neos.Content.Picture:Picture) < prototype(Neos.Neos:ContentCompone
                 }
             }
             noAssetInBe {
-                condition = ${node.context.inBackend}
+                condition = ${renderingMode.isEdit || renderingMode.isPreview}
                 renderer = Sitegeist.Kaleidoscope:DummyImageSource
             }
         }

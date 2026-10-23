@@ -2,26 +2,30 @@ prototype(DIU.Neos.Content.Picture:Components.Picture) < prototype(Neos.Fusion:C
 
     imageSource = Sitegeist.Kaleidoscope:DummyImageSource
 
-    sources = Neos.Fusion:RawArray {
-        large = Neos.Fusion:RawArray {
+    # props are not part of the context while props are evaluated, so the sources need the imageSource via @context
+    @context.imageSource = ${this.imageSource}
+
+    sources = Neos.Fusion:DataStructure {
+        large = Neos.Fusion:DataStructure {
             srcset = '1x, 1.5x, 2x'
             media = 'screen and (min-width: 1200px)'
         }
 
-        small = Neos.Fusion:RawArray {
+        small = Neos.Fusion:DataStructure {
             srcset = '320w, 480w, 800w'
             sizes = '(max-width: 320px) 280px, (max-width: 480px) 440px, 100vw'
             media = 'screen and (max-width: 1599px)'
         }
 
-        webpLarge = Neos.Fusion:RawArray {
-            imageSource = ${imageSource.setFormat('webp')}
+        webpLarge = Neos.Fusion:DataStructure {
+            imageSource = ${imageSource.withFormat('webp')}
             srcset = '1x, 1.5x, 2x'
             media = 'screen and (min-width: 1200px)'
+            type = 'image/webp'
         }
 
-        webpSmall = Neos.Fusion:RawArray {
-            imageSource = ${imageSource.setFormat('webp')}
+        webpSmall = Neos.Fusion:DataStructure {
+            imageSource = ${imageSource.withFormat('webp')}
             srcset = '320w, 480w, 800w'
             sizes = '(max-width: 320px) 280px, (max-width: 480px) 440px, 100vw'
             type = 'image/webp'

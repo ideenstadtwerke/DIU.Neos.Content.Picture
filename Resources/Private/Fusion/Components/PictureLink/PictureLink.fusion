@@ -9,12 +9,12 @@ prototype(DIU.Neos.Content.Picture:Fragment.PictureLink) < prototype(Neos.Fusion
 
         tagName = Neos.Fusion:Case {
             backend {
-                condition = ${documentNode.context.inBackEnd}
+                condition = ${renderingMode.isEdit || renderingMode.isPreview}
                 renderer = 'span'
             }
 
             frontend {
-                condition = ${!documentNode.context.inBackEnd}
+                condition = ${!renderingMode.isEdit && !renderingMode.isPreview}
                 renderer = 'a'
             }
         }
